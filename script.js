@@ -1,4 +1,34 @@
 'use strict';
+
+///////////////////////////////////////
+// Coding Challenge #2
+/*
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event 
+listener that changes the color of the selected h1 element ('header') to 
+blue, each time the BODY element is clicked. Do NOT select the h1 element
+ again!
+
+ And now explain to YOURSELF (or someone around you) WHY this worked! 
+Take all the time you need. Think about WHEN exactly the callback 
+function is executed, and what that means for the variables involved in 
+this example.
+
+// GOOD LUCK 😀
+*/
+/*
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+*/
+
+/*
 /////////////////////////////////////////////////////////////////
 // Closures
 
@@ -19,7 +49,7 @@ booker();
 
 console.dir(booker);
 
-// More examples of closures
+// More examples of closures (Example #1)
 
 let jam;
 const hol = function () {
@@ -38,12 +68,35 @@ const sam = function () {
 
 hol();
 jam();
+console.dir(jam);
 
 // Re-assigning jam function
 sam();
 jam();
+console.dir(jam);
+// A closure always makes sure that a function never loses its connnection to the variables that were present at its birthplace
 
-/*
+// Example #2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000;
+boardPassengers(180, 3);
+
+// This is the timeout function in js, the first parameter is what the function should do, the second parameter is milliseconds in which the specifified function needs to work
+// setTimeout(function () {
+//   console.log('TIMER');
+// }, 5000);
+
+
 /////////////////////////////////////////////////////////////////
 // Immediately Invoked Function Expressions (IIFE)
 
